@@ -38,6 +38,7 @@
         <!--<property name="typeAliasesPackage" value="" />-->
         <!--<property name="typeHandlers" value="com.ocelot.scaffold.framework.type.IntEnumTypeHandler"/>-->
         <!--<property name="typeHandlersPackage" value="com.ocelot.scaffold.framework.type" />-->
+        <property name="typeHandlersPackage" value="com.ocelot.scaffold.framework.mybatis.type" />
     </bean>
 
     <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->

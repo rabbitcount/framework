@@ -1,4 +1,4 @@
-package com.ocelot.scaffold.framework.type;
+package com.ocelot.scaffold.framework.mybatis.enumtype;
 
 import com.ocelot.scaffold.framework.entity.status.IntEnum;
 import org.apache.ibatis.type.BaseTypeHandler;

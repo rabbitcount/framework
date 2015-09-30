@@ -3,17 +3,28 @@
 
 <mapper namespace="com.ocelot.scaffold.framework.mapper.UserMapper">
 
-    <sql id="insertVals"> #{newUser.name}, #{newUser.status, typeHandler=com.ocelot.scaffold.framework.type.IntEnumTypeHandler} </sql>
+    <sql id="selectCols"> id, name, status, createdate, money  </sql>
+
+    <sql id="insertCols"> name, status, createdate, money</sql>
+
+    <sql id="insertVals"> #{newUser.name}, #{newUser.status, typeHandler=com.ocelot.scaffold.framework.mybatis.enumtype.IntEnumTypeHandler},
+        #{newUser.createDate}, #{newUser.money} </sql>
 
     <resultMap id="user" type="com.ocelot.scaffold.framework.entity.User">
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <!-- IntEnumTypeHandler如果放置在spring配置文件中,会抛出无法找到构造函数的异常 -->
-        <result property="status" column="status" typeHandler="com.ocelot.scaffold.framework.type.IntEnumTypeHandler" />
+        <result property="status" column="status" typeHandler="com.ocelot.scaffold.framework.mybatis.enumtype.IntEnumTypeHandler" />
+        <result property="createDate" column="createdate" />
+        <result property="money" column="money" />
+    </resultMap>
+
+    <resultMap id="userView" type="com.ocelot.scaffold.framework.entity.view.UserView">
+        <id column=""
     </resultMap>
 
     <select id="getUser" resultMap="user">
-        select id, name, status from user
+        select <include refid="selectCols" /> from user
         where id = #{userId}
     </select>
 
@@ -21,6 +32,10 @@
         <!--<selectKey keyProperty="id" resultType="int" order="AFTER">-->
             <!--select LAST_INSERT_ID() as id-->
         <!--</selectKey>-->
-        insert into user (name, status) values ( <include refid="insertVals" /> )
+        insert into user (<include refid="insertCols" /> ) values ( <include refid="insertVals" /> )
     </insert>
+
+    <select id="getUserView" resultMap="userView">
+        select
+    </select>
 </mapper>

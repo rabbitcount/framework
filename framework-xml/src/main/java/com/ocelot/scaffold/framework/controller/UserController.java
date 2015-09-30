@@ -5,6 +5,8 @@ import com.ocelot.scaffold.framework.service.FooService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -18,8 +20,8 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public User create(@RequestParam("name") String name) {
-        return this.fooService.doCreateUser(name);
+    public User create(@RequestParam("name") String name, @RequestParam("money")BigDecimal money) {
+        return this.fooService.doCreateUser(name, money);
     }
 
 }

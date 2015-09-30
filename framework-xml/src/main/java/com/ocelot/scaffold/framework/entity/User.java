@@ -3,11 +3,17 @@ package com.ocelot.scaffold.framework.entity;
 import com.ocelot.scaffold.framework.entity.status.UserStatus;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class User implements Serializable {
+
+
     private int id;
     private String name;
     private UserStatus status;
+    private LocalDate createDate;
+    private BigDecimal money;
 
     public int getId() {
         return id;
@@ -25,25 +31,26 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public UserStatus getUserStatus(){ return this.status; }
-
     public void setStatus(UserStatus status) { this.status = status; }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-//        if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        if(id != user.id) return false;
-        return true;
+    public UserStatus getStatus() {
+        return status;
     }
 
-    @Override
-    public int hashCode() {
-//        return id != null ? id.hashCode() : 0;
-        return super.hashCode();
+    public LocalDate getCreateDate() {
+        return createDate;
     }
+
+    public void setCreateDate(LocalDate createDate) {
+        this.createDate = createDate;
+    }
+
+    public BigDecimal getMoney() {
+        return money;
+    }
+
+    public void setMoney(BigDecimal money) {
+        this.money = money;
+    }
+
 }
