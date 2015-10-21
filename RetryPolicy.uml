@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.apache.curator.RetryPolicy</OriginalElement>
+  <nodes>
+    <node x="44.5" y="654.5">org.apache.curator.retry.RetryOneTime</node>
+    <node x="338.0" y="102.0">org.apache.curator.retry.SleepingRetry</node>
+    <node x="579.0" y="295.0">org.apache.curator.retry.ExponentialBackoffRetry</node>
+    <node x="356.0" y="0.0">org.apache.curator.RetryPolicy</node>
+    <node x="617.5" y="620.0">org.apache.curator.retry.BoundedExponentialBackoffRetry</node>
+    <node x="521.0" y="113.5">org.apache.curator.retry.RetryForever</node>
+    <node x="280.0" y="361.5">org.apache.curator.retry.RetryUntilElapsed</node>
+    <node x="0.0" y="383.5">org.apache.curator.retry.RetryNTimes</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.apache.curator.retry.SleepingRetry" target="org.apache.curator.RetryPolicy">
+      <point x="0.0" y="-71.5" />
+      <point x="419.5" y="77.0" />
+      <point x="435.75" y="77.0" />
+      <point x="-79.75" y="26.0" />
+    </edge>
+    <edge source="org.apache.curator.retry.RetryOneTime" target="org.apache.curator.retry.RetryNTimes">
+      <point x="0.0" y="-26.0" />
+      <point x="0.0" y="49.0" />
+    </edge>
+    <edge source="org.apache.curator.retry.RetryUntilElapsed" target="org.apache.curator.retry.SleepingRetry">
+      <point x="0.0" y="-71.0" />
+      <point x="0.0" y="71.5" />
+    </edge>
+    <edge source="org.apache.curator.retry.RetryNTimes" target="org.apache.curator.retry.SleepingRetry">
+      <point x="0.0" y="-49.0" />
+      <point x="130.0" y="270.0" />
+      <point x="365.1666666666667" y="270.0" />
+      <point x="-54.333333333333314" y="71.5" />
+    </edge>
+    <edge source="org.apache.curator.retry.ExponentialBackoffRetry" target="org.apache.curator.retry.SleepingRetry">
+      <point x="0.0" y="-137.5" />
+      <point x="739.5" y="270.0" />
+      <point x="473.83333333333337" y="270.0" />
+      <point x="54.33333333333337" y="71.5" />
+    </edge>
+    <edge source="org.apache.curator.retry.RetryForever" target="org.apache.curator.RetryPolicy">
+      <point x="0.0" y="-60.0" />
+      <point x="611.5" y="77.0" />
+      <point x="595.25" y="77.0" />
+      <point x="79.75" y="26.0" />
+    </edge>
+    <edge source="org.apache.curator.retry.BoundedExponentialBackoffRetry" target="org.apache.curator.retry.ExponentialBackoffRetry">
+      <point x="0.0" y="-60.5" />
+      <point x="0.0" y="137.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="450.0" y="370.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -4,12 +4,14 @@ import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BasicOperation {
-
     private static final String HOST = "bja.anocelot.cn:2181";
 
     public static void main(String[] args) throws KeeperException, InterruptedException, IOException {
+
         // 创建一个与服务器的连接
         ZooKeeper zk = new ZooKeeper(HOST,
                 30000, new Watcher() {
@@ -20,10 +22,10 @@ public class BasicOperation {
         });
         // 创建一个目录节点
         String createNodeRet = zk.create("/testRootPath", "testRootData".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE,
-                CreateMode.PERSISTENT);
+                CreateMode.PERSISTENT_SEQUENTIAL);
         // 创建一个子目录节点
         String createSubNodeRet = zk.create("/testRootPath/testChildPathOne", "testChildDataOne".getBytes(),
-                ZooDefs.Ids.OPEN_ACL_UNSAFE,CreateMode.PERSISTENT);
+                ZooDefs.Ids.OPEN_ACL_UNSAFE,CreateMode.PERSISTENT_SEQUENTIAL);
         System.out.println(new String(zk.getData("/testRootPath",false,null)));
         // 取出子目录节点列表
         System.out.println(zk.getChildren("/testRootPath",true));
